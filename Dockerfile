@@ -4,11 +4,15 @@ WORKDIR /app
 
 COPY pyproject.toml .
 
+COPY uv.lock .
+
 RUN pip install uv
 
 RUN uv sync
 
 COPY . .
+
+ENV PATH="/app/.venv/bin:$PATH"
 
 EXPOSE 8000
 
