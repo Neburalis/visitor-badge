@@ -34,16 +34,18 @@ def validate_and_convert_color(color: str):
     try:
         return Color[color.upper()].value
     except KeyError:
-        raise ValueError("Color must be in the format #RRGGBB or a valid Color enum name")
+        raise ValueError(
+            "Color must be in the format #RRGGBB or a valid Color enum name"
+        )
 
 
 # Эндпоинт для генерации баннера по переданному id
 @app.get("/badge/{badge_id}")
 def get_badge(
-        badge_id: str,
-        db: Session = Depends(get_db),
-        label: Annotated[str, Query(max_length=50)] = "visitors",
-        color: Annotated[str, AfterValidator(validate_and_convert_color)] = "green",
+    badge_id: str,
+    db: Session = Depends(get_db),
+    label: Annotated[str, Query(max_length=50)] = "visitors",
+    color: Annotated[str, AfterValidator(validate_and_convert_color)] = "green",
 ):
     # Получаем или создаем запись и увеличиваем счетчик
     badge = get_or_create_badge(db, badge_id)
@@ -54,6 +56,7 @@ def get_badge(
 
     # Возвращаем SVG с нужным заголовком Content-Type
     return Response(content=svg, media_type="image/svg+xml")
+
 
 @app.get("/favicon.ico")
 def favicon():
