@@ -5,7 +5,16 @@ IMAGE_NAME = "visitor-badge"
 build:
 	python bin/sync_ignore.py
 	@echo "Build Dockerfile"
-	docker build -t $(IMAGE_NAME) .
+	docker compose build
 
 lint:
 	docker run --rm --volume $(CURDIR):/app --workdir /app pyfound/black:latest_release black .
+
+run:
+	docker compose up -d
+
+stop:
+	docker compose down
+
+logs:
+	docker compose logs -f
