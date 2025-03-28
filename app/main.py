@@ -12,13 +12,11 @@ from .models import Base
 from .crud import get_or_create_badge
 import anybadge
 
-# Создаем таблицы при старте приложения
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
 
-# Dependency для получения сессии БД
 def get_db():
     db = SessionLocal()
     try:
@@ -39,7 +37,6 @@ def validate_and_convert_color(color: str):
         )
 
 
-# Эндпоинт для генерации баннера по переданному id
 @app.get("/badge/{badge_id}")
 def get_badge(
     badge_id: str,
@@ -47,14 +44,11 @@ def get_badge(
     label: Annotated[str, Query(max_length=50)] = "visitors",
     color: Annotated[str, AfterValidator(validate_and_convert_color)] = "green",
 ):
-    # Получаем или создаем запись и увеличиваем счетчик
     badge = get_or_create_badge(db, badge_id)
 
-    # Генерируем SVG-баннер
     badge = anybadge.Badge(label=label, value=str(badge.counter), default_color=color)
     svg = badge.badge_svg_text
 
-    # Возвращаем SVG с нужным заголовком Content-Type
     return Response(content=svg, media_type="image/svg+xml")
 
 
