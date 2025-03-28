@@ -3,9 +3,10 @@ IMAGE_NAME = "visitor-badge"
 .PHONY: build lint
 
 build:
-	python bin/sync_ignore.py
-	@echo "Build Dockerfile"
 	docker compose build
+
+sync_ignore:
+	python bin/sync_ignore.py
 
 lint:
 	docker run --rm --volume $(CURDIR):/app --workdir /app pyfound/black:latest_release black .
