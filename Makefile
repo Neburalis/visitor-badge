@@ -8,4 +8,4 @@ build:
 	docker build -t $(IMAGE_NAME) .
 
 lint:
-	docker run --rm --volume $(CURDIR):/app --workdir /app pyfound/black:latest_release black --check .
+	docker run --rm --volume $(CURDIR):/app --workdir /app pyfound/black:latest_release black .
