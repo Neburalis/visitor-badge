@@ -1,5 +1,6 @@
 # app/main.py
 import re
+import datetime
 from typing import Annotated
 
 from anybadge import Color
@@ -49,7 +50,12 @@ def get_badge(
     badge = anybadge.Badge(label=label, value=str(badge.counter), default_color=color)
     svg = badge.badge_svg_text
 
-    return Response(content=svg, media_type="image/svg+xml")
+    expiry_time = datetime.datetime.utcnow() - datetime.timedelta(minutes=10)
+
+    headers = {'Cache-Control': 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate',
+               'Expires': expiry_time.strftime("%a, %d %b %Y %H:%M:%S GMT")}
+
+    return Response(content=svg, media_type="image/svg+xml", headers=headers)
 
 
 @app.get("/favicon.ico")
