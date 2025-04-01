@@ -5,5 +5,23 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: "${DATABASE_URL}"
+#      DATABASE_URL: "${DATABASE_URL}"
+      DATABASE_URL: "postgresql://visitor_user:visitor_pass@db/visitor_db"
     restart: unless-stopped
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: visitor_badge_db
+    environment:
+      POSTGRES_DB: visitor_db
+      POSTGRES_USER: visitor_user
+      POSTGRES_PASSWORD: visitor_pass
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db_data:
+
