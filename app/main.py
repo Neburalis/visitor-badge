@@ -37,7 +37,7 @@ def validate_and_convert_color(color: str):
         )
 
 
-@app.get("/badge/{badge_id}")
+@app.get("/visitors/{badge_id}")
 def get_badge(
     badge_id: str,
     db: Session = Depends(get_db),
