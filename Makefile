@@ -1,6 +1,6 @@
 IMAGE_NAME = "visitor-badge"
 
-.PHONY: build lint
+.PHONY: build sync_ignore lint run stop logs pull update
 
 build:
 	docker compose build
@@ -19,3 +19,12 @@ stop:
 
 logs:
 	docker compose logs -f
+
+pull:
+	git pull
+
+update:
+	make stop
+	make pull
+	make build
+	make run
