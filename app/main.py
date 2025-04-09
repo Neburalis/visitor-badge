@@ -1,11 +1,12 @@
 # app/main.py
 import re
 import datetime
+import os
 from typing import Annotated
 
 from anybadge import Color
 from fastapi import FastAPI, Response, Depends, Query
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from pydantic import AfterValidator
 from sqlalchemy.orm import Session
 from .database import engine, SessionLocal
@@ -16,6 +17,10 @@ import anybadge
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+root = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(root, 'readme.html')) as f:
+    index = f.read()
 
 
 def get_db():
@@ -36,6 +41,11 @@ def validate_and_convert_color(color: str):
         raise ValueError(
             "Color must be in the format #RRGGBB or a valid Color enum name"
         )
+
+
+@app.get("/", response_class=HTMLResponse)
+def docs():
+    return HTMLResponse(index)
 
 
 @app.get("/visitors/{badge_id}")
