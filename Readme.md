@@ -319,7 +319,7 @@ visitor-badge/
 
 ## What's Next
 
-- **HTML version of readme**: I will convert this readme into a nice html file and it will be available on the main badge.neburalis.space page.
+- ~~**HTML version of readme**: I will convert this readme into a nice html file and it will be available on the main badge.neburalis.space page.~~
 - **New parameters**: do not increment the counter, format the digit
 - **Basic Anti-Abuse Protection**: I'll add restrictions to prevent increasing the counter using curl and wget. I'll try using IP address limitations, but this might block GitHub, so this will be tested carefully.
 - **Statistics**: Ability to view statistics for 7 days, a month, and more (like the repository stars graph but with views).
