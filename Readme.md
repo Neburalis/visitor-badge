@@ -22,14 +22,14 @@
 
 ## Project Homepage
 
-> [http://badge.neburalis.space](http://badge.neburalis.space)
+> [http://badge.neburalis.ru](http://badge.neburalis.ru)
 
 ## Usage
 
 - **Standard Style**
 
   ```markdown
-  ![Visitor Badge](http://badge.neburalis.space/visitors/{your_page_id})
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/{your_page_id})
   ```
 
   Replace `{your_page_id}` with a unique identifier for your page or repository.
@@ -40,41 +40,41 @@
     `{your_username}.{your_repository}`
 
     ```markdown
-    ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge)
+    ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge)
     ```
 
-    ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge)
+    ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge)
 
   - For issues:
     `{your_username}.{your_repository}.issue.{issue_number}`
 
     ```markdown
-    ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge.issue.1)
+    ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge.issue.1)
     ```
 
-    ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge.issue.1)
+    ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge.issue.1)
 
 - **Custom Badge Label** (default is `visitors`)
 
   ```markdown
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?label=MyVisitors)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?label=MyVisitors)
   ```
 
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?label=MyVisitors)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?label=MyVisitors)
 
 - **Custom Color**
 
   ```markdown
-  ![Visitor Badge](http://badge.neburalis.space/visitors/{your_page_id}?color=blue)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/{your_page_id}?color=blue)
   ```
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?color=blue)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?color=blue)
 
   Or use a HEX color code (don't forget to encode the `#` symbol as `%23`):
 
   ```markdown
-  ![Visitor Badge](http://badge.neburalis.space/visitors/{your_page_id}?color=%23ff69b4)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/{your_page_id}?color=%23ff69b4)
   ```
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?color=%23ff69b4)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?color=%23ff69b4)
 
 <details>
 <summary>Available Colors</summary>
@@ -220,20 +220,20 @@ To use the color in the URL, you can specify its name (e.g., `red`) or HEX code 
 - **Combining Custom Label and Color**
 
   ```markdown
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?label=Visitors&color=red)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?label=Visitors&color=red)
   ```
 
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?label=Visitors&color=red)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?label=Visitors&color=red)
 
 - **Using Spaces in the Label**
 
   Replace spaces with `%20` or URL-encode your label.
 
   ```markdown
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?label=My%20Visitors)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?label=My%20Visitors)
   ```
 
-  ![Visitor Badge](http://badge.neburalis.space/visitors/neburalis.visitor-badge?label=My%20Visitors)
+  ![Visitor Badge](http://badge.neburalis.ru/visitors/neburalis.visitor-badge?label=My%20Visitors)
 
 ## Deployment
 
@@ -319,7 +319,7 @@ visitor-badge/
 
 ## What's Next
 
-- ~~**HTML version of readme**: I will convert this readme into a nice html file and it will be available on the main badge.neburalis.space page.~~
+- ~~**HTML version of readme**: I will convert this readme into a nice html file and it will be available on the main badge.neburalis.ru page.~~
 - **New parameters**: do not increment the counter, format the digit
 - **Basic Anti-Abuse Protection**: I'll add restrictions to prevent increasing the counter using curl and wget. I'll try using IP address limitations, but this might block GitHub, so this will be tested carefully.
 - **Statistics**: Ability to view statistics for 7 days, a month, and more (like the repository stars graph but with views).
